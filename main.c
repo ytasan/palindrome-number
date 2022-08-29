@@ -20,15 +20,9 @@ bool isPalindrome(int x){
     while(tempX > 0) 
     {
         digit = tempX % 10;          
-        // printf("digit = %d\n", digit);
-        // printf("tempX = %d\n", tempX);
-        // printf("i = %d\n", i);
         digitArr[i] = digit; 
-        // printf("i = %d\n", i);
         i++;
-        // printf("i = %d\n", i);
         tempX = tempX / 10;    
-        // printf("tempX = %d\n", tempX);
     }
     
     for (i = 0; i < digitCount; i++) {
