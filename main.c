@@ -14,7 +14,7 @@ bool isPalindrome(int x){
     unsigned int* digitArr = (unsigned int*) calloc(digitCount, sizeof(unsigned int));
     
     if(debug){printf("number = %d\n", x);}
-    if(debug){printf("digit number = %d\n", digitCount);}
+    if(debug){printf("digitCount = %d\n", digitCount);}
     
     tempX = x;
     i = 0; 
@@ -29,6 +29,21 @@ bool isPalindrome(int x){
     for (i = 0; i < digitCount; i++) {
         if(debug){printf("digit = %d\n", digitArr[i]);}
     }
-
-    return false;
+    
+    i = 0;
+    if(digitCount != 0){
+        while(i<(digitCount/2)){
+            if(debug){printf("i = %d\n", i);}
+            if(debug){printf("digitArr[%d] = %d\n", i, digitArr[i]);}
+            if(debug){printf("digitArr[%d] = %d\n", digitCount - 1 - i, digitArr[digitCount - 1 - i]);}
+            if(digitArr[i] != digitArr[digitCount - 1 - i]){
+                free(digitArr); 
+                return false;
+            }
+            i++;
+        }        
+    }
+    
+    free(digitArr);
+    return true;
 }
