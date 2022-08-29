@@ -1,23 +1,34 @@
 bool isPalindrome(int x){
-    int digitCount = 0;   
-    int tempX = x;
+    unsigned int digitCount = 0;   
+    unsigned int tempX = x;
     unsigned int i = 0;
-    unsigned int* digitArr = (unsigned int*) malloc(digitCount * sizeof(unsigned int));
+    unsigned int digit = 0;
+    
     
     while( tempX != 0) {  
         tempX = tempX / 10;  
         digitCount++;  
     }  
-    printf("digit number = %d\n", digitCount);
-    printf("number = %d\n", x);
     
-    tempX = x;    
+    unsigned int* digitArr = (unsigned int*) calloc(digitCount, sizeof(unsigned int));
+    
+    printf("number = %d\n", x);
+    printf("digit number = %d\n", digitCount);
+    
+    tempX = x;        
+    i = 0; 
     while(tempX > 0) 
     {
-        int digit = tempX % 10;          
+        digit = tempX % 10;          
+        // printf("digit = %d\n", digit);
+        // printf("tempX = %d\n", tempX);
+        // printf("i = %d\n", i);
         digitArr[i] = digit; 
+        // printf("i = %d\n", i);
         i++;
+        // printf("i = %d\n", i);
         tempX = tempX / 10;    
+        // printf("tempX = %d\n", tempX);
     }
     
     for (i = 0; i < digitCount; i++) {
